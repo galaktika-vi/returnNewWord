@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+       
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите первое слово: ");
+        String word1 = scanner.nextLine();
+        System.out.println("Введите второе слово: ");
+        String word2 = scanner.nextLine();
+        System.out.println("Новое слово: " + returnNewWord(word1, word2));
+
+     
+        System.out.println("Введите первое число: ");
+        double num1 = scanner.nextDouble();
+        System.out.println("Введите второе число: ");
+        double num2 = scanner.nextDouble();
+        System.out.println("Сумма: " + add(num1, num2));
+        System.out.println("Разность: " + subtract(num1, num2));
+        System.out.println("Произведение: " + multiply(num1, num2));
+        System.out.println("Частное: " + divide(num1, num2));
+
+      
+        System.out.println("Введите сумму в евро: ");
+        double amount_euro = scanner.nextDouble();
+        System.out.println("Введите текущий курс (сколько долларов дают за 1 евро): ");
+        double exchange_rate = scanner.nextDouble();
+        convert_euro_to_usd(amount_euro, exchange_rate);
+    }
+
+    public static String returnNewWord(String word1, String word2) {
+        String firstHalf = word1.substring(0, word1.length()/2);
+        String secondHalf = word2.substring(word2.length()/2);
+        return firstHalf + secondHalf;
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
+
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Деление на ноль недопустимо");
+            return 0;
+        }
+    }
+
+    public static void convert_euro_to_usd(double amount_euro, double exchange_rate) {
+        double amount_usd = amount_euro * exchange_rate;
+        System.out.printf("При курсе %.2f USD за один EUR, при обмене %.2f EUR, вы получите %.2f USD", exchange_rate, amount_euro, amount_usd);
+    }
+}

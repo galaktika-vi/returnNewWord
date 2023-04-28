@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите длину первой стороны треугольника: ");
+        double side1 = scanner.nextDouble();
+        System.out.print("Введите длину второй стороны треугольника: ");
+        double side2 = scanner.nextDouble();
+        System.out.print("Введите длину третьей стороны треугольника: ");
+        double side3 = scanner.nextDouble();
+
+        double area = triangleArea(side1, side2, side3);
+        if (area > 0) {
+            System.out.println("Площадь треугольника: " + area);
+        } else {
+            System.out.println("Треугольник с такими сторонами не существует.");
+        }
+    }
+
+    public static double triangleArea(double side1, double side2, double side3) {
+        if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+            double semiPerimeter = (side1 + side2 + side3) / 2;
+            return Math.sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3));
+        } else {
+            return -1;
+        }
+    }
+}

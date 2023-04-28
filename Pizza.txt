@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите диаметр первой пиццы: ");
+        int diameter1 = scanner.nextInt();
+        System.out.print("Введите диаметр второй пиццы: ");
+        int diameter2 = scanner.nextInt();
+        System.out.print("Введите количество калорий на квадратный сантиметр: ");
+        int caloriesPerSquareCentimeter = scanner.nextInt();
+
+        System.out.println("Дополнительные калории: " + calorieCalculator(diameter1, diameter2, caloriesPerSquareCentimeter));
+    }
+
+    public static int calorieCalculator(int diameter1, int diameter2, int caloriesPerSquareCentimeter) {
+        double area1 = Math.PI * Math.pow((diameter1 / 2.0), 2);
+        double area2 = Math.PI * Math.pow((diameter2 / 2.0), 2);
+        int additionalCalories = (int) ((area1 - area2) * caloriesPerSquareCentimeter);
+        return additionalCalories;
+    }
+}

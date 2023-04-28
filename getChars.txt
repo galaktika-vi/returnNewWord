@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите слово: ");
+        String input = scanner.nextLine();
+        System.out.print("Введите первый индекс: ");
+        int index1 = scanner.nextInt();
+        System.out.print("Введите второй индекс: ");
+        int index2 = scanner.nextInt();
+
+        System.out.println("Результирующая строка: " + getChars(input, index1, index2));
+    }
+
+    public static String getChars(String input, int index1, int index2) {
+        return String.valueOf(input.charAt(index1)) + String.valueOf(input.charAt(index2));
+    }
+}
